@@ -1,0 +1,6 @@
+/node_modules
+/build
+/public
+/src/common/mock
+/src/common/utils
+/server.js
