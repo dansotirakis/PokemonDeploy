@@ -1,0 +1,33 @@
+stages:
+  - lint
+  - build
+
+cache:
+  paths:
+    - node_modules
+
+eslint:
+  image: node:8
+  stage: lint
+  allow_failure: true
+  only:
+    - master
+    - develop
+  script:
+    - npm i eslint eslint-plugin-react eslint-config-prettier eslint-plugin-prettier prettier babel-eslint
+    - node_modules/eslint/bin/eslint.js .
+
+build_static:
+  image: node:8-alpine
+  stage: build
+  only:
+    - master
+    - develop
+    - /^release/.*$/
+  before_script:
+    - npm install --progress=false
+  script:
+    - CI=false npm run build
+  artifacts:
+    paths:
+      - build/
