@@ -48,7 +48,7 @@ export const List = () => {
     if (!filtered) {
       if (data && !loading && !error) {
         localStorage.setItem('listPokemons', JSON.stringify(data.pokemons));
-        setRenderList(true);
+        setFiltered(data.pokemons)
       }
     }
     setRenderList(true);
