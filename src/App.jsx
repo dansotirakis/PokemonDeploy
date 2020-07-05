@@ -1,5 +1,4 @@
 import React from 'react';
-
 import 'config/ReactotronConfig';
 import { ApplyProvider } from './common/higherOrder';
 import { Routes } from './common/routes';
