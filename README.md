@@ -1,6 +1,6 @@
 # SoftReactPokemon
 
-This project for challenge SoftPlan
+This project for challenge SoftPlan : https://pokemon-play.netlify.app/
 
 ## Stack
 
@@ -10,6 +10,7 @@ This project for challenge SoftPlan
 - ### `Redux`
 - ### `Saga`
 - ### `Lint`
+- ### `Tests`
 - ### `CI/CD`
 
 ## Available Scripts
