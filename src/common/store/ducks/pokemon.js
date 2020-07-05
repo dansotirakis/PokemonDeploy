@@ -8,6 +8,7 @@ export const { Types, Creators } = createActions({
   pokemonLoadFailure: ['errors'],
   pokemonLoadSuccess: ['pokemons'],
   selectedOnPokemon: ['pokemon'],
+  updatedPokemon: ['newList'],
 });
 
 const INITIAL_STATE = {
@@ -15,6 +16,7 @@ const INITIAL_STATE = {
   pokemon: {},
   pokemons: [],
   errors: undefined,
+  newList: [],
 };
 
 const pokemonLoadSuccess = (state = INITIAL_STATE, pokemons) => {

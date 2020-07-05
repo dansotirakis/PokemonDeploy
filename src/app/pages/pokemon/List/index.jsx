@@ -33,7 +33,6 @@ export const List = () => {
 
   const selectedHandler = pokemon => {
     dispatch(actionPokemon.selectedOnPokemon(pokemon));
-    history.push('/read');
   };
 
   const searchHandler = param => {
@@ -70,7 +69,7 @@ export const List = () => {
               <CustomButton onClick={logOut}>LogOut</CustomButton>
             </Grid>
           </Grid>
-          <Grid container className={classes.grid}>
+          <Grid container className={classes.grid} spacing={2}>
             <Grid item xs={12}>
               <Grid container justify="center">
                 <CustomParagraph
