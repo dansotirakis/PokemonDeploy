@@ -1,17 +1,19 @@
-# SoftReactPokemon
+# PokémonDeploy
 
-This project for challenge SoftPlan : https://pokemon-play.netlify.app/
+##### This project PokemonDeploy with : https://pokemon-play.netlify.app/
 
-## Stack
+###### and
 
-- ### `React`
-- ### `StyledComponents`
-- ### `HooksForms`
-- ### `Redux`
-- ### `Saga`
-- ### `Lint`
-- ### `Tests`
-- ### `CI/CD`
+#### Stack
+
+- ##### `React`
+- ##### `StyledComponents`
+- ##### `HooksForms`
+- ##### `Redux`
+- ##### `Saga`
+- ##### `Lint`
+- ##### `Tests`
+- ##### `CI/CD`
 
 ## Available Scripts
 
