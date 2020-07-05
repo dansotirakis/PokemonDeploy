@@ -15,7 +15,8 @@ run-unit-test:
     - npm install # Install all dependencies
     - npm test # Test
   only:
-    - merge_requests
+    - master
+    - develop
 
 eslint:
   image: node:8
