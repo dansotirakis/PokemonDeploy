@@ -23,11 +23,11 @@ Runs the app in the development mode.<br />
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `yarn test`
+### `yarn lint`
 
 Quality test code run lint.<br />
 
-### `yarn lint`
+### `yarn test`
 
 Launches the test runner in the interactive watch mode.<br />
 

@@ -11,7 +11,8 @@ import {
 import { COLORS } from '../../../../common/utils';
 import history from '../../../../common/store/history';
 import { useForm } from 'react-hook-form';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { Creators as actionPokemon } from 'common/store/ducks/pokemon';
 
 export const Form = () => {
   const { register, handleSubmit, errors } = useForm({
@@ -19,6 +20,7 @@ export const Form = () => {
   });
   const pokemon = useSelector(state => state.pokemon.pokemonSelected);
   const localStore = JSON.parse(localStorage.getItem('listPokemons'));
+  const dispatch = useDispatch();
 
   let fieldIdAtk = 0;
   let fieldIdTyp = 0;
@@ -38,7 +40,7 @@ export const Form = () => {
       }
       return newList.push(pok);
     });
-    localStorage.setItem('listPokemons', JSON.stringify(newList));
+    dispatch(actionPokemon.updatedPokemon(newList));
     return history.push(`/list`);
   };
 
