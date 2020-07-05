@@ -1,23 +1,24 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import { CustomParagraph } from '../../../../common/components/CustonParagraph';
-import { COLORS } from '../../../../common/utils/colors';
+import {
+  CustomButton,
+  CustomDiv,
+  CustomImg,
+  CustomInput,
+  CustomLabel,
+  CustomParagraph,
+} from '../../../../common/components';
+import { COLORS } from '../../../../common/utils';
 import history from '../../../../common/store/history';
-import { useStyles } from '../../../../common/utils/styleGrid';
-import { CustomImg } from '../../../../common/components/CustomImg';
-import { CustomDiv } from '../../../../common/components/CustomDiv';
-import { CustomInput } from '../../../../common/components/CustonInput';
-import { CustomLabel } from '../../../../common/components/CustonLabel';
 import { useForm } from 'react-hook-form';
-import { CustomButton } from '../../../../common/components/CustomButtom';
+import { useSelector } from 'react-redux';
 
 export const Form = () => {
   const { register, handleSubmit, errors } = useForm({
     mode: 'onBlur',
   });
-  const classes = useStyles();
-  const pokemon = JSON.parse(localStorage.getItem('selectedPokemon'));
-  const listPok = JSON.parse(localStorage.getItem('listPokemons'));
+  const pokemon = useSelector(state => state.pokemon.pokemonSelected);
+  const localStore = JSON.parse(localStorage.getItem('listPokemons'));
 
   let fieldIdAtk = 0;
   let fieldIdTyp = 0;
@@ -31,21 +32,19 @@ export const Form = () => {
       image: pokemon.image,
       id: pokemon.id,
     };
-    listPok.map(pok => {
+    localStore.map(pok => {
       if (pok.id === pokemon.id) {
         return newList.push(object);
-      } else {
-        return newList.push(pok);
       }
+      return newList.push(pok);
     });
-    localStorage.setItem('selectedPokemon', JSON.stringify(object));
     localStorage.setItem('listPokemons', JSON.stringify(newList));
-    return history.push(`/`);
+    return history.push(`/list`);
   };
 
   return (
-    <Grid container xs={12} justify="center">
-      <Grid item container className={classes.grid} sm={12} md={10} lg={8}>
+    <Grid container justify="center">
+      <Grid item sx={12} md={10} lg={8}>
         <CustomDiv
           background={COLORS.white100}
           padding="20px"
@@ -53,7 +52,7 @@ export const Form = () => {
           textAlignLast="center"
         >
           {pokemon && (
-            <Grid xs={12} sm={12} md={12} justify="center">
+            <Grid item xs={12}>
               <form onSubmit={handleSubmit(submit)}>
                 <CustomDiv width="100%">
                   <CustomImg
@@ -188,13 +187,13 @@ export const Form = () => {
                     </CustomDiv>
                   ))}
                 </CustomDiv>
-                <Grid justify="center" container item xs={12} spacing={1}>
-                  <Grid item>
-                    <CustomButton onClick={() => history.push(`/read/`)}>
+                <Grid justify="center" container item spacing={1}>
+                  <Grid item xs={3}>
+                    <CustomButton onClick={() => history.push(`/read`)}>
                       Return
                     </CustomButton>
                   </Grid>
-                  <Grid item>
+                  <Grid item xs={3}>
                     <CustomButton type="submit">Save</CustomButton>
                   </Grid>
                 </Grid>
